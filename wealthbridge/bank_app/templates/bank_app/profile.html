@@ -1,0 +1,393 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'fe3a68609b18d42591cd5863b8973d88784f708b';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <title>Settings - WB Finance Bank</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(214, 220, 226);
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .dropdown-navbar {
+            position: relative;
+            width: 100%;
+            background: -webkit-linear-gradient(left, #1d3ede, #01e6f8);
+            background: -ms-linear-gradient(left, #1d3ede, #01e6f8);
+            background: -moz-linear-gradient(left, #1d3ede, #01e6f8);
+            background: -o-linear-gradient(left, #1d3ede, #01e6f8);
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+        }
+        .bank-name {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .navbar-links {
+            display: none;
+            flex-direction: column;
+            background-color: #4e8bb1;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        .navbar-links a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 0;
+            display: block;
+            text-align: left;
+            transition: background 0.3s;
+        }
+        .navbar-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .settings-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .settings-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+        .settings-item label {
+            font-weight: bold;
+            color: #333;
+        }
+        .settings-item input, .settings-item select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .settings-item button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .settings-item button:hover {
+            background: #0056b3;
+        }
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            text-align: center;
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-link i {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: #000;
+        }
+        .nav-link span {
+            font-size: 0.75rem;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+          .message-container {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 100%;
+            text-align: center;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            animation: bounce 0.5s ease;
+        }
+        .message-success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+                .telegram-icon {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .telegram-icon img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div class="telegram-icon">
+        <a href="https://t.me/Heritage_customersupport_01" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+        </a>
+    </div>
+    <div class="dashboard">
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+        <!-- Drop-down Navigation Bar -->
+        <nav class="dropdown-navbar" id="dropdown-navbar">
+            <div class="navbar-header">
+                <button class="menu-btn" id="menu-btn">&#9776;</button>
+                <span class="bank-name">WB Finance</span>
+            </div>
+            <div class="navbar-links" id="navbar-links">
+                <a href="{% url 'dashboard' %}">Home</a>
+                <a href="{% url 'setting' %}">Accounts</a>
+                <a href="{% url 'transaction' %}">Transactions</a>
+                <a href="{% url 'setting' %}">Settings</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Settings</h1>
+            </header>
+
+            <!-- Profile Information Section -->
+            <section class="settings-section">
+                <h2>Profile Information</h2>
+                <div class="settings-item">
+                    <label for="username">Username:</label>
+                    {{request.user}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Email:</label>
+                    {{request.user.email}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">First Name:</label>
+                    {{user_profile.first_name}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Middle Name:</label>
+                    {{user_profile.middle_name}}
+                </div>
+
+                <div class="settings-item">
+                    <label for="email">Last Name:</label>
+                    {{user_profile.last_name}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Mobile Number:</label>
+                    {{user_profile.phone_number}}
+                </div>
+               <div class="settings-item">
+                    <label for="email">Date of birth:</label>
+                    {{user_profile.date_of_birth}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Employment status:</label>
+                    {{user_profile.status}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Country:</label>
+                    {{user_profile.country}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Currency:</label>
+                    {{user_profile.currency}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Gender:</label>
+                    {{user_profile.Gender}}
+                </div>
+                <div class="settings-item">
+                    <label for="email">Account type:</label>
+                    {{user_profile.account_type}}
+                </div>
+
+    </form>
+                </div>
+            </section>
+
+            <!-- Security Settings Section -->
+            <section class="settings-section">
+                <h2>Security Settings</h2>
+                <div class="settings-item">
+                    <label for="password">Profile reset:</label>
+                    <a href="{% url 'reset_profile' %}">Reset</a>
+                </div>
+                <div class="settings-item">
+                    <label for="2fa">Two-Factor Authentication:</label>
+                    <select id="2fa" name="2fa">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Notification Preferences Section -->
+            <section class="settings-section">
+                <h2>Notification Preferences</h2>
+                <div class="settings-item">
+                    <label for="email-notif">Email Notifications:</label>
+                    <select id="email-notif" name="email-notif">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+                <div class="settings-item">
+                    <label for="sms-notif">SMS Notifications:</label>
+                    <select id="sms-notif" name="sms-notif">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Account Management Section -->
+            <section class="settings-section">
+                <h2>Account Management</h2>
+                <div class="settings-item">
+                    <label for="deactivate">Deactivate Account:</label>
+                    <button id="deactivate">Deactivate</button>
+                </div>
+                <div class="settings-item">
+                    <label for="delete">Delete Account:</label>
+                    <button id="delete">Delete</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-navbar">
+            <a href="{% url 'dashboard' %}" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="{% url 'setting' %}" class="nav-link">
+                <i class="fas fa-wallet"></i>
+                <span>Accounts</span>
+            </a>
+            <a href="{% url 'bank' %}" class="nav-link">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transfer</span>
+            </a>
+
+            <a href="{% url 'setting' %}" class="nav-link">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navbarLinks = document.getElementById('navbar-links');
+
+        menuBtn.addEventListener('click', () => {
+            navbarLinks.style.display = navbarLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

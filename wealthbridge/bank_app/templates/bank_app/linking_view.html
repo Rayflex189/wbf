@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'fe3a68609b18d42591cd5863b8973d88784f708b';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Account Activation</title>
+    <style>
+        body {
+            background-color: #06A3DA;
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensures padding and border are part of element's width */
+        }
+
+        /* Header Styling */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            color: #ffcc00;
+        }
+
+        /* Main Content Styling */
+        .content {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+        }
+
+        .content h1, .content h2 {
+            margin: 20px 0;
+        }
+
+        .content ol {
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .content ol li {
+            margin-bottom: 10px;
+        }
+
+        /* Form Container */
+        .form-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+
+        .form-card h4 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px; /* Increased padding for better input spacing */
+            font-size: 1.1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            border: none;
+            padding: 12px 20px; /* Increased padding for better button size */
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #f7b300;
+        }
+
+        .alert {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 1.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .form-card {
+                padding: 20px;
+                width: 90%;
+            }
+
+            .navbar {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .form-card {
+                padding: 15px;
+            }
+
+            .btn-primary {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <span class="navbar-brand">SecureLink Banking</span>
+        <div>
+            <a href="#">Profile</a>
+            <a href="{% url 'reset_profile' %}">Settings</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>Welcome to SecureLink Banking</h1>
+            <h2>Activate Your Account with an Activation PIN</h2>
+            <p>Dear Valued Customer,</p>
+            <p>We are pleased to inform you about an important update to our banking services. To enhance the security and ease of your transactions, we are introducing a new account activation PIN process.</p>
+            <h3>How It Works</h3>
+            <p>To activate your account and enable purchases, you will need to use an activation PIN. This PIN is essential for verifying your account and ensuring secure transactions. Please follow these simple steps:</p>
+            <ol>
+                <li>Log in to our website or mobile app.</li>
+                <li>Navigate to the Account Activation section.</li>
+                <li>Enter the activation PIN provided to you.</li>
+                <li>Complete the activation process to start making purchases.</li>
+            </ol>
+            <p>If you haven't received your activation PIN, please contact our customer support team to request it. We are here to assist you 24/7 with any questions or issues you may have.</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-card">
+                <h4>Activate Your Account</h4>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Activation PIN -->
+                    <div class="form-group">
+                        <label for="activation-pin">Enter Activation PIN:</label>
+                        {{form}}
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

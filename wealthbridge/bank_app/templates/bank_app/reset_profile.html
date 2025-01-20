@@ -1,0 +1,343 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB FinanceAxis Bank - Profile Edit</title>
+    <!-- Smartsupp Live Chat script -->
+     <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'fe3a68609b18d42591cd5863b8973d88784f708b';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+    <noscript> Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+    <link rel="icon" href="{% static 'images/web_logo.jpg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style type="text/css">
+        :root {
+            --primary-color: #1ecbe1;
+            --secondary-color: #004080;
+            --rare-color: lightblue;
+            --container-bg-color: #fdfdfd;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat:no-repeat;
+            background-image: url("/static/images/learn-img.jpg");
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);/* Semi-transparent white background */
+            padding: 25px 30px;
+            border-radius: 10px; /* More rounded corners */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more pronounced effect */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Optional subtle border */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+            margin-bottom: 20px;
+            color: #1d3ede;
+        }
+
+        .container .title::before {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 30px;
+            background: linear-gradient(to left, 135deg, var(--secondary-color), var(--primary-color));
+            bottom: -5px;
+            left: 0;
+        }
+
+        .container form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Add space between fields */
+            margin-bottom: 20px;
+        }
+
+        .container form .user-details .input-box {
+            flex: 1;
+            min-width: 250px; /* Minimum width to ensure fields are not too narrow */
+        }
+
+        .container form .user-details .input-box .details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .container form .user-details .input-box input,
+        .container form .user-details .input-box select {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .container form .user-details .input-box input:focus,
+        .container form .user-details .input-box select:focus {
+            border-color: navy;
+        }
+
+        .container form .profile-box .profile-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: navy;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
+        form .button {
+            height: 45px;
+            margin: 45px 0;
+            display: flex; /* Centering the button */
+            justify-content: center;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600; /* Slightly bolder font weight for better emphasis */
+            letter-spacing: 1px;
+            color: #fff;
+            border-radius: 25px; /* More rounded corners */
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); /* Gradient background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            cursor: pointer; /* Pointer cursor to indicate it's clickable */
+            transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        form .button input:hover {
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color)); /* Reverse gradient on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container form .user-details {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .container form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            .container form .profile-box {
+                margin-top: 20px;
+            }
+        }
+
+        /* Translate icon styles */
+        .translate-icon-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .translate-icon {
+            width: 40px;
+            height: 40px;
+            background-image: url('{% static "path_to_google_translate_icon.png" %}');
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .translate-icon:hover {
+            animation: bounce 0.5s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">User Profile Form</div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <p class="error-message">{{ form.first_name.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Middle Name</span>
+                    {{ form.middle_name }}
+                    {% if form.middle_name.errors %}
+                        <p class="error-message">{{ form.middle_name.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                        <p class="error-message">{{ form.last_name.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Next Of Kin</span>
+                    {{ form.next_of_kin }}
+                    {% if form.next_of_kin.errors %}
+                        <p class="error-message">{{ form.next_of_kin.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    {{ form.phone_number }}
+                    {% if form.phone_number.errors %}
+                        <p class="error-message">{{ form.phone_number.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Date of Birth</span>
+                    {{ form.date_of_birth }}
+                    {% if form.date_of_birth.errors %}
+                        <p class="error-message">{{ form.date_of_birth.errors }}</p>
+                    {% endif %}
+                </div>
+
+            <div class="input-box">
+                <span class="details">Status</span>
+                {{ form.status }}
+                {% if form.status.errors %}
+                <p class="error-message">{{ form.status.errors }}</p>
+            {% endif %}
+            </div>
+
+            <div class="input-box">
+                <span class="details">Country</span>
+                {{ form.country }}
+                {% if form.country.errors %}
+                <p class="error-message">{{ form.country.errors }}</p>
+            {% endif %}
+            </div>
+
+            <div class="input-box">
+                <span class="details">Currency</span>
+                {{ form.currency }}
+                {% if form.currency.errors %}
+                    <p class="error-message">{{ form.currency.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="input-box">
+                <span class="details">Gender</span>
+                {{ form.Gender }}
+                {% if form.Gender.errors %}
+                    <p class="error-message">{{ form.Gender.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="input-box">
+                <span class="details">2FAuth</span>
+                {{ form.four_digit_auth_key }}
+                {% if form.four_digit_auth_key.errors %}
+                    <p class="error-message">{{ form.four_digit_auth_key.errors }}</p>
+                {% endif %}
+            </div>
+            
+
+            <div class="input-box">
+                <span class="details">Account Type</span>
+                {{ form.account_type }}
+                {% if form.account_type.errors %}
+                    <p class="error-message">{{ form.account_type.errors }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="profile-box">
+            <span class="profile-title">Update Profile Picture</span>
+            {{ form.profile_pic }}
+            {% if form.profile_pic.errors %}
+            <p class="error-message">{{ form.profile_pic.errors }}</p>
+        {% endif %}
+        </div>
+
+        <div class="button">
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>
+   </div>
+
+   <!-- Translation icon -->
+   <div class="translate-icon-container">
+       <div id="translate-icon" class="translate-icon"></div>
+   </div>
+
+   <script>
+       // Translate icon animation
+       const translateIcon = document.getElementById('translate-icon');
+       translateIcon.addEventListener('mouseover', () => {
+           translateIcon.style.animation = 'bounce 0.5s infinite alternate';
+       });
+       translateIcon.addEventListener('mouseleave', () => {
+           translateIcon.style.animation = '';
+       });
+   </script>
+
+</body>
+</html>
