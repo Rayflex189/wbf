@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3_)^u&niz%-isn%ciqt+qx7*3h!bo(js3+s%x0qray8bkb8d_1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://wealthbridge-finance-option.onrender.com']
+ALLOWED_HOSTS = ['wealthbridge-finance-option.onrender.com']
 
 
 # Application definition
