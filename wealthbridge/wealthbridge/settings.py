@@ -12,6 +12,21 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'crestline_support_database',
+        'USER': 'crestline_support_database_user',
+        'PASSWORD': '5B0xbvGWTJ8iAkbOyV9NON8OrWqALHQl',
+        'HOST': 'dpg-cv4aa9ggph6c738tlt8g-a.oregon-postgres.render.com',  # Check this
+        'PORT': '5432',
+    },
+     'OPTIONS': {
+            'sslmode': 'require',
+        },
+}
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
