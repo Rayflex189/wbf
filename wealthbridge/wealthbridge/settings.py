@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'bank_app'
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
