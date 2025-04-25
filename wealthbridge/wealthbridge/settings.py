@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config(
+    cloud_name="dlzn0moho",
+    api_key="563396395915366",
+    api_secret="pCSSrLNvxfFSEzY4ZnaOiF5u93o"
+)
 
 DATABASES = {
     'default': {
