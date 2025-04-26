@@ -26,9 +26,9 @@ cloudinary.config(
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crestline_support_database',
-        'USER': 'crestline_support_database_user',
-        'PASSWORD': '5B0xbvGWTJ8iAkbOyV9NON8OrWqALHQl',
+        'NAME': 'wealth_bridge_dbs',
+        'USER': 'wealth_bridge_dbs_user',
+        'PASSWORD': 'PPkCrD7V41RLZ9BYLqqX1VbF9K9atWnT',
         'HOST': 'dpg-d05tq215pdvs73enmpug-a.oregon-postgres.render.com',  # Check this
         'PORT': '5432',
     },
