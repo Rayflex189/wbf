@@ -1,5 +1,6 @@
 {% load humanize %}
 {% load static %}
+{% load cloudinary %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -471,7 +472,11 @@ small{
 
             </aside>
             <aside>
-                <img src="{{user_profile.profile_pic.url}}" class="profile-img" alt="Profile Picture">
+                {% if user_profile.profile_pic %}
+    <img src="{{ user_profile.profile_pic.url }}" class="profile-img" alt="Profile Picture">
+{% else %}
+    <img src="{% static 'images/default.jpg' %}" class="profile-img" alt="Default Profile Picture">
+{% endif %}
             </aside>
         </div>
 <hr>
