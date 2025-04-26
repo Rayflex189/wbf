@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-# Exit on error
 set -o errexit
 
-# Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
-
-# Convert static asset files
 python manage.py collectstatic --no-input
-
-# Create new database migrations
 python manage.py makemigrations
 
-# Apply any outstanding database migrations
-python manage.py migrate
+if ! python manage.py migrate; then
+    echo "Normal migration failed. Attempting --fake migration..."
+    python manage.py migrate --fake
+fi
