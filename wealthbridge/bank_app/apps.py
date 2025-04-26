@@ -1,7 +1,9 @@
 from django.apps import AppConfig
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.management import execute_from_command_line
 from django.db.utils import OperationalError, ProgrammingError
+import sys
 
 
 class BankAppConfig(AppConfig):
@@ -9,6 +11,10 @@ class BankAppConfig(AppConfig):
     name = 'bank_app'
 
     def ready(self):
+        # Skip auto superuser creation during collectstatic or non-migration commands
+        if 'collectstatic' in sys.argv or 'makemigrations' in sys.argv:
+            return
+
         User = get_user_model()
         try:
             if not User.objects.filter(email=settings.SUPERUSER_EMAIL).exists():
@@ -18,5 +24,5 @@ class BankAppConfig(AppConfig):
                     password=settings.SUPERUSER_PASSWORD
                 )
         except (OperationalError, ProgrammingError):
-            # Avoid errors during migrations or when DB isn't ready
+            # Handle initial setup where DB might not yet exist or be ready
             pass
