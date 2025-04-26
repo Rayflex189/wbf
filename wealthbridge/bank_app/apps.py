@@ -19,7 +19,7 @@ class BankAppConfig(AppConfig):
         try:
             if not User.objects.filter(email=settings.SUPERUSER_EMAIL).exists():
                 User.objects.create_superuser(
-                    username=settings.SUPERUSER_NAME,
+                    username=settings.SUPERUSER_USERNAME,
                     email=settings.SUPERUSER_EMAIL,
                     password=settings.SUPERUSER_PASSWORD
                 )
