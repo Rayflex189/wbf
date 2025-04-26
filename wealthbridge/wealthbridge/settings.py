@@ -29,7 +29,7 @@ DATABASES = {
         'NAME': 'crestline_support_database',
         'USER': 'crestline_support_database_user',
         'PASSWORD': '5B0xbvGWTJ8iAkbOyV9NON8OrWqALHQl',
-        'HOST': 'dpg-cv4aa9ggph6c738tlt8g-a.oregon-postgres.render.com',  # Check this
+        'HOST': 'dpg-d05tq215pdvs73enmpug-a.oregon-postgres.render.com',  # Check this
         'PORT': '5432',
     },
      'OPTIONS': {
