@@ -19,8 +19,8 @@ import cloudinary.api
 
 cloudinary.config(
     cloud_name="dlzn0moho",
-    api_key="563396395915366",
-    api_secret="pCSSrLNvxfFSEzY4ZnaOiF5u93o"
+    api_key="985286726363731",
+    api_secret="kmwU4CXiMEbh2PBR3mtifyB_5H4"
 )
 
 DATABASES = {
@@ -106,8 +106,8 @@ WSGI_APPLICATION = 'wealthbridge.wsgi.application'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dlzn0moho',
-    'API_KEY': '563396395915366',
-    'API_SECRET': 'pCSSrLNvxfFSEzY4ZnaOiF5u93o',
+    'API_KEY': '985286726363731',
+    'API_SECRET': 'kmwU4CXiMEbh2PBR3mtifyB_5H4',
 }
 
 MEDIA_URL = '/media/'  # or any prefix you choose
