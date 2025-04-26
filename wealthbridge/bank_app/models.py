@@ -6,6 +6,8 @@ from django.utils import timezone
 from datetime import datetime
 import random
 import string
+from cloudinary.models import CloudinaryField
+
 
 def generate_code(length=6):
     characters = string.ascii_letters + string.digits
