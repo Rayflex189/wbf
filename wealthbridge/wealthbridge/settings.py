@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'bank_app.apps.YourAppConfig',
+    'bank_app.apps.BankAppConfig',
     'cloudinary',
     'cloudinary_storage',
 ]
