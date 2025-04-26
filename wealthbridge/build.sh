@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
+# Exit on error
 set -o errexit
 
+# Install requirements
 pip install -r requirements.txt
+
+# Collect static files
 python manage.py collectstatic --no-input
 
-# Only make migrations if there are model changes
-if python manage.py makemigrations --check --dry-run | grep 'Migrations for'; then
-    echo "Model changes detected. Creating migrations..."
-    python manage.py makemigrations
-fi
+# Make migrations
+python manage.py makemigrations
 
-python manage.py migrate --fake-initial
+# Migrate database
+python manage.py migrate
 
-echo "Deployment complete!"
+# Fix missing columns if any
+python manage.py fix_db_columns
