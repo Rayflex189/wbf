@@ -276,6 +276,7 @@ def paypal(request):
     }
     return render(request, 'bank_app/paypal.html', context)
 
+@login_required
 def linking_view(request):
     try:
         profile = request.user.userprofile
