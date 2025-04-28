@@ -17,34 +17,52 @@ from .models import *
 from .utilis import *
 
 @unauthenticated_user
-def reg(request):
-    form = CustomUserCreationForm()
-    show_login = False  # To control login form display
+def register(request):
+    form = UserCreationForm()
 
     if request.method == 'POST':
-        # Handle Registration
-        if 'register' in request.POST:
-            form = CustomUserCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                messages.success(request, "Account created successfully! Please log in.")
-                show_login = True  # Show the login form after successful registration
-            else:
-                messages.error(request, "Registration failed. Please correct the errors below.")
-        
-        # Handle Login
-        elif 'login' in request.POST:
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(request, username=username, password=password)
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('loginview')
 
-            if user is not None:
-                login(request, user)
-                return redirect('reset_profile')  # Redirect to desired page after login
-            else:
-                messages.info(request, 'Username or password is incorrect.')
+    context = {'form': form}
+    return render(request, 'bank_app/register.html', context)
 
-    return render(request, 'bank_app/registration.html', {'form': form, 'show_login': show_login})
+@unauthenticated_user
+def loginview(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('reset_profile')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
+    context = {}
+    return render(request, 'bank_app/login.html')
+    
+def home(request):
+    return render(request, 'bank_app/index.html')
+
+@login_required
+def dashboard(request):
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        # Handle the case where the profile doesn't exist
+        user_profile = UserProfile.objects.create(user=request.user)
+
+    # Fetch the last 10 transactions
+    transactions = Transaction.objects.filter(user=user_profile.user).order_by('-timestamp')[:10]
+    balance = user_profile.balance
+    currency = user_profile.currency
+    account_type = user_profile.account_type
+    context = {'currency':currency, 'balance':balance, 'user_profile':user_profile, 'transactions':transactions, 'account_type':account_type}
+    return render(request, 'bank_app/dashboard.html', context)
 
 def home(request):
     return render(request, 'bank_app/index.html')
