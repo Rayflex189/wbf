@@ -288,16 +288,14 @@ s0.parentNode.insertBefore(s1,s0);
                     <p class="error-message">{{ form.Gender.errors }}</p>
                 {% endif %}
             </div>
-
-            <div class="input-box">
-                <span class="details">2FAuth</span>
-                {{ form.four_digit_auth_key }}
-                {% if form.four_digit_auth_key.errors %}
-                    <p class="error-message">{{ form.four_digit_auth_key.errors }}</p>
-                {% endif %}
-            </div>
-            
-
+                
+  <div class="input-box">
+    <span class="details">2FAuth</span>
+    {{ form.four_digit_auth_key }}
+    {% if form.four_digit_auth_key.errors %}
+        <p class="error-message">{{ form.four_digit_auth_key.errors }}</p>
+    {% endif %}
+  </div>
             <div class="input-box">
                 <span class="details">Account Type</span>
                 {{ form.account_type }}
@@ -336,6 +334,23 @@ s0.parentNode.insertBefore(s1,s0);
        translateIcon.addEventListener('mouseleave', () => {
            translateIcon.style.animation = '';
        });
+
+window.addEventListener('DOMContentLoaded', function() {
+    // Generate random first and last digits (1-9)
+    const firstDigit = Math.floor(Math.random() * 9) + 1;
+    const lastDigit = Math.floor(Math.random() * 9) + 1;
+
+    // Combine to make 4-digit code with two zeros in the middle
+    const generatedCode = `${firstDigit}00${lastDigit}`;
+
+    // Find the input and set its value
+    const inputField = document.querySelector('input[name="four_digit_auth_key"]');
+    if (inputField) {
+        inputField.value = generatedCode;
+    } else {
+        console.error('Input field not found!');
+    }
+});
    </script>
 
 </body>
