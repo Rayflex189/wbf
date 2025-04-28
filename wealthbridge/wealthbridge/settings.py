@@ -40,7 +40,8 @@ DATABASES = {
         },
 }
 
-
+LOGIN_URL = 'login'  # where 'login' is the name of your login view
+LOGIN_REDIRECT_URL = 'dashboard'  # where 'dashboard' is where users go after login
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
